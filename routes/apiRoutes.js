@@ -7,7 +7,7 @@ const {
 } = require('../helpers/fsUtils');
 
 router.get('/notes', (req, res) =>
-  readFromFile('../db/db.json').then((data) => res.json(JSON.parse(data)))
+  readFromFile('db/db.json').then((data) => res.json(JSON.parse(data)))
 );
 
 
@@ -19,15 +19,16 @@ router.post('/notes', (req, res) => {
 
   if (title, text) {
     const newNote = {
-      username,
       title,
       text,
       // note_id: uuidv4(),
       id: uuidv4()
     };
 
-    readAndAppend(newTip, './db/tips.json');
-    res.json(`Tip added successfully 🚀`);
+    readAndAppend(newNote, 'db/db.json');
+    readFromFile('db/db.json').then((data) => res.json(JSON.parse(data)))
+   
+    
   } else {
     res.error('Error in adding tip');
   }
