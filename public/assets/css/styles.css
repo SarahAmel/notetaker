@@ -3,6 +3,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  /* background-color: #cd30ae; */
 }
 
 .save-note {
@@ -18,7 +19,7 @@ body {
 
 .note-textarea,
 .note-title {
-  color: #000000;
+  color: #0a33e9;
   width: 100%;
   outline: none;
   border: none;
@@ -34,11 +35,12 @@ body {
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
+  background-color: #30cd38;
 }
 
 .note-title:read-only,
 .note-textarea:read-only {
-  color: #757575;
+  color: #cd30ae;
 }
 
 .list-container .card {
@@ -75,4 +77,9 @@ body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
+}
+
+
+.h1{
+  background-color: aqua;
 }
