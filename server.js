@@ -1,27 +1,24 @@
 const express = require ("express");
-
+const { clog } = require('./middleware/clog');
 
 
 // todo  add the routes for the api/html
-
 const apiRoutes = require("./routes/apiRoutes");
-
 const htmlRoutes = require("./routes/htmlRoutes");
 
 //initalize the app and create a port 
 const app = express();
-
 const PORT = process.env.PORT || 3001;
+
+// Import custom middleware, "cLog"
+app.use(clog);
 
 // to do set up  a body parsing static and route and middlewear 
 app.use(express.urlencoded({ extend: true}));
-
 app.use(express.json());
-
 app.use(express.static("public"));
 
 app.use("/",htmlRoutes);
-
 app.use("/api",apiRoutes);
 
 

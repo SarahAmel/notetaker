@@ -1,19 +1,18 @@
-app.get('/feedback', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/pages/feedback.html'))
-);
+const router = require("express").Router()
+const { v4: uuidv4 } = require('uuid');
+const {
+  readFromFile,
+  readAndAppend,
+  writeToFile,
+} = require('../helpers/fsUtils');
 
-
-
-
-
-
-app.get('api/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/db/db.json'))
+router.get('/notes', (req, res) =>
+  readFromFile('../db/db.json').then((data) => res.json(JSON.parse(data)))
 );
 
 
 // POST Route for a new UX/UI tip
-app.post('api/notes', (req, res) => {
+router.post('/notes', (req, res) => {
   console.log(req.body);
 
   const { title,text } = req.body;
@@ -24,7 +23,7 @@ app.post('api/notes', (req, res) => {
       title,
       text,
       // note_id: uuidv4(),
-      id: uuid()
+      id: uuidv4()
     };
 
     readAndAppend(newTip, './db/tips.json');
@@ -58,3 +57,6 @@ app.post('api/notes', (req, res) => {
 //     });
 //   }
 // });
+
+
+module.exports = router

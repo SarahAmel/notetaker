@@ -2,23 +2,29 @@
 //   res.sendFile(path.join(__dirname, '/public/index.html'))
 // );
 
+const path = require("path")
+
+const router = require("express").Router()
+
 
 // GET Route for homepage
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
+router.get('/', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/index.html'))
 );
 
 
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
+router.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, '../public/notes.html'))
 );
 
+
+module.exports = router
 
 
 // Wildcard route to direct users to a 404 page
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/pages/404.html'))
-);
+// app.get('*', (req, res) =>
+//   res.sendFile(path.join(__dirname, 'public/pages/404.html'))
+// );
 
 
 // app.listen(PORT, () =>
