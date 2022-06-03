@@ -19,7 +19,7 @@ body {
 
 .note-textarea,
 .note-title {
-  color: #0a33e9;
+  color: #900ae9;
   width: 100%;
   outline: none;
   border: none;
@@ -35,12 +35,12 @@ body {
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
-  background-color: #30cd38;
+  background-color: #0fdaed;
 }
 
 .note-title:read-only,
 .note-textarea:read-only {
-  color: #cd30ae;
+  color: #1a0fab;
 }
 
 .list-container .card {
@@ -81,5 +81,5 @@ body {
 
 
 .h1{
-  background-color: aqua;
+  background-color: rgb(234, 83, 49);
 }
